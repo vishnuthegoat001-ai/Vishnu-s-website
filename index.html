@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Vishnu Kicks</title>
 </head>
 
 <body style="margin:0; font-family:Arial; background-color:#f5f5f5;">
 
-    <!-- Navigation Bar -->
+    <!-- Navbar -->
     <div style="background-color:black; color:white; padding:20px;">
         <h2 style="display:inline;">👟 Vishnu Kicks</h2>
 
@@ -18,138 +19,148 @@
         </span>
     </div>
 
-    <!-- Hero Section -->
-    <div style="text-align:center; padding:50px; background-color:white;">
-        <h1>JUST PLAY.</h1>
+    <!-- Home Section -->
+    <div style="
+        background-color:white;
+        text-align:center;
+        padding:60px 20px;
+    ">
 
-        <p>Discover the latest sneakers built for style and performance.</p>
+        <h1 style="
+            font-size:55px;
+            margin-bottom:10px;
+        ">
+            👟 VISHNU KICKS
+        </h1>
 
-        <button style="
-            padding:15px;
-            border:none;
-            border-radius:25px;
+        <h2 style="
+            font-size:35px;
+            color:#444;
+        ">
+            RUN YOUR WORLD.
+        </h2>
+
+        <p style="
+            font-size:20px;
+            color:gray;
+        ">
+            Premium sneakers built for every adventure.
+        </p>
+
+        <button onclick="scrollToShop()" style="
             background-color:black;
             color:white;
+            padding:15px 30px;
+            border:none;
+            border-radius:30px;
+            font-size:18px;
+            cursor:pointer;
         ">
             Shop Now
         </button>
-    </div>
 
-    <!-- Featured Products -->
-    <h2 style="text-align:center;">Featured Shoes</h2>
+        <br><br><br>
 
-    <div style="text-align:center;">
-
-        <!-- Shoe 1 -->
-        <div style="
-            display:inline-block;
-            width:250px;
-            background-color:white;
-            margin:15px;
-            padding:20px;
-            border-radius:15px;
-        ">
-
-            <img
-            src="https://https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqEkUsU4d1inx09ZNhqdAfYa4q2-qwxq9gUd0LMoeTg&s=10"
-            width="200">
-
-            <h3>Air Runner</h3>
-
-            <p>₹7,999</p>
-
-            <button style="
-                padding:10px;
-                border:none;
-                border-radius:20px;
-                background-color:black;
-                color:white;
-            ">
-                Buy Now
-            </button>
-
-        </div>
-
-        <!-- Shoe 2 -->
-        <div style="
-            display:inline-block;
-            width:250px;
-            background-color:white;
-            margin:15px;
-            padding:20px;
-            border-radius:15px;
-        ">
-
-            <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzyQNFWlEUcMh3iHz8M2s-OIHgzPlRtZVnCTE8O6fH0iw6ixN5msm2K0pJ&s=10"
-            width="200">
-
-            <h3>Street Elite</h3>
-
-            <p>₹8,499</p>
-
-            <button style="
-                padding:10px;
-                border:none;
-                border-radius:20px;
-                background-color:black;
-                color:white;
-            ">
-                Buy Now
-            </button>
-
-        </div>
-
-        <!-- Shoe 3 -->
-        <div style="
-            display:inline-block;
-            width:250px;
-            background-color:white;
-            margin:15px;
-            padding:20px;
-            border-radius:15px;
-        ">
-
-            <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4V-JNqXipMttQTNdh8RSAneq_9791q4hb54Pz3mJYzA&s=10"
-            width="200">
-
-            <h3>Speed Max</h3>
-
-            <p>₹9,999</p>
-
-            <button style="
-                padding:10px;
-                border:none;
-                border-radius:20px;
-                background-color:black;
-                color:white;
-            ">
-                Buy Now
-            </button>
-
-        </div>
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Shoes_pair.jpg/640px-Shoes_pair.jpg"
+            width="350"
+            style="border-radius:20px;"
+        >
 
     </div>
 
-    <!-- About -->
-    <div style="
-        background-color:black;
-        color:white;
-        text-align:center;
-        padding:40px;
-        margin-top:40px;
-    ">
+    <!-- Shop Section -->
+    <div id="shop">
 
-        <h2>About Vishnu Kicks</h2>
+        <h2 style="text-align:center;">
+            Featured Shoes
+        </h2>
 
-        <p>
-            Built by Vishnu to bring amazing sneakers and cool designs
-            to athletes and sneaker lovers everywhere.
-        </p>
+        <div style="text-align:center;">
 
-    </div>
+            <!-- Shoe 1 -->
+            <div style="
+                display:inline-block;
+                width:250px;
+                background-color:white;
+                margin:15px;
+                padding:20px;
+                border-radius:15px;
+            ">
 
-</body>
-</html> 
-            
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Shoes_pair.jpg/640px-Shoes_pair.jpg"
+                    width="200"
+                >
+
+                <h3>Air Runner</h3>
+
+                <p>₹7,999</p>
+
+                <button onclick="buy('Air Runner')" style="
+                    padding:10px;
+                    border:none;
+                    border-radius:20px;
+                    background-color:black;
+                    color:white;
+                    cursor:pointer;
+                ">
+                    Buy Now
+                </button>
+
+            </div>
+
+            <!-- Shoe 2 -->
+            <div style="
+                display:inline-block;
+                width:250px;
+                background-color:white;
+                margin:15px;
+                padding:20px;
+                border-radius:15px;
+            ">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Shoes_pair.jpg/640px-Shoes_pair.jpg"
+                    width="200"
+                >
+
+                <h3>Street Elite</h3>
+
+                <p>₹8,499</p>
+
+                <button onclick="buy('Street Elite')" style="
+                    padding:10px;
+                    border:none;
+                    border-radius:20px;
+                    background-color:black;
+                    color:white;
+                    cursor:pointer;
+                ">
+                    Buy Now
+                </button>
+
+            </div>
+
+            <!-- Shoe 3 -->
+            <div style="
+                display:inline-block;
+                width:250px;
+                background-color:white;
+                margin:15px;
+                padding:20px;
+                border-radius:15px;
+            ">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Shoes_pair.jpg/640px-Shoes_pair.jpg"
+                    width="200"
+                >
+
+                <h3>Speed Max</h3>
+
+                <p>₹9,999</p>
+
+                <button onclick="buy('Speed Max')" style="
+                    padding:10px;
+                    border:none;
