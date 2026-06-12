@@ -1,119 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>VishnuGPT</title>
+    <title>Vishnu Kicks</title>
 </head>
 
-<body style="background-color:#202123; color:white; font-family:Arial;">
+<body style="margin:0; font-family:Arial; background-color:#f5f5f5;">
 
-    <h1 style="text-align:center;">🤖 VishnuGPT</h1>
+    <!-- Navigation Bar -->
+    <div style="background-color:black; color:white; padding:20px;">
+        <h2 style="display:inline;">👟 Vishnu Kicks</h2>
 
-    <p style="text-align:center;">
-        Ask me HTML questions!
-    </p>
-
-    <div id="chat" style="
-        width:80%;
-        margin:auto;
-        border:1px solid gray;
-        border-radius:15px;
-        padding:20px;
-        min-height:250px;
-        background-color:#343541;
-    ">
+        <span style="float:right;">
+            Home &nbsp;&nbsp;
+            Shop &nbsp;&nbsp;
+            About &nbsp;&nbsp;
+            Contact
+        </span>
     </div>
 
-    <div style="text-align:center; margin-top:20px;">
+    <!-- Hero Section -->
+    <div style="text-align:center; padding:50px; background-color:white;">
+        <h1>JUST PLAY.</h1>
 
-        <input
-            id="question"
-            placeholder="Ask VishnuGPT an HTML question..."
-            style="
-                width:60%;
-                padding:12px;
-                border-radius:20px;
-                border:none;
-            "
-        >
+        <p>Discover the latest sneakers built for style and performance.</p>
 
-        <button
-            onclick="askVishnuGPT()"
-            style="
-                padding:12px;
-                border-radius:20px;
-            "
-        >
-            Ask
+        <button style="
+            padding:15px;
+            border:none;
+            border-radius:25px;
+            background-color:black;
+            color:white;
+        ">
+            Shop Now
         </button>
+    </div>
+
+    <!-- Featured Products -->
+    <h2 style="text-align:center;">Featured Shoes</h2>
+
+    <div style="text-align:center;">
+
+        <!-- Shoe 1 -->
+        <div style="
+            display:inline-block;
+            width:250px;
+            background-color:white;
+            margin:15px;
+            padding:20px;
+            border-radius:15px;
+        ">
+
+            <img
+            src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/5/3/5324c8eNike-HJ1102-002_1.jpg?rnd=20200526195200&tr=w-1536"
+            width="200">
+
+            <h3>Air Runner</h3>
+
+            <p>₹7,999</p>
+
+            <button style="
+                padding:10px;
+                border:none;
+                border-radius:20px;
+                background-color:black;
+                color:white;
+            ">
+                Buy Now
+            </button>
+
+        </div>
+
+        <!-- Shoe 2 -->
+        <div style="
+            display:inline-block;
+            width:250px;
+            background-color:white;
+            margin:15px;
+            padding:20px;
+            border-radius:15px;
+        ">
+
+            <img
+            src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/5/3/5324c8eNike-HJ1102-002_1.jpg?rnd=20200526195200&tr=w-1536"
+            width="200">
+
+            <h3>Street Elite</h3>
+
+            <p>₹8,499</p>
+
+            <button style="
+                padding:10px;
+                border:none;
+                border-radius:20px;
+                background-color:black;
+                color:white;
+            ">
+                Buy Now
+            </button>
+
+        </div>
+
+        <!-- Shoe 3 -->
+        <div style="
+            display:inline-block;
+            width:250px;
+            background-color:white;
+            margin:15px;
+            padding:20px;
+            border-radius:15px;
+        ">
+
+            <img
+            src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/5/3/5324c8eNike-HJ1102-002_1.jpg?rnd=20200526195200&tr=w-1536"
+            width="200">
+
+            <h3>Speed Max</h3>
+
+            <p>₹9,999</p>
+
+            <button style="
+                padding:10px;
+                border:none;
+                border-radius:20px;
+                background-color:black;
+                color:white;
+            ">
+                Buy Now
+            </button>
+
+        </div>
 
     </div>
 
-    <script>
+    <!-- About -->
+    <div style="
+        background-color:black;
+        color:white;
+        text-align:center;
+        padding:40px;
+        margin-top:40px;
+    ">
 
-        function askVishnuGPT() {
+        <h2>About Vishnu Kicks</h2>
 
-            var question =
-                document.getElementById("question").value;
+        <p>
+            Built by Vishnu to bring amazing sneakers and cool designs
+            to athletes and sneaker lovers everywhere.
+        </p>
 
-            question =
-                question.toLowerCase().trim();
+    </div>
 
-            var answer;
-
-            if (question === "what is html") {
-
-                answer =
-                "HTML stands for HyperText Markup Language. It is used to build websites.";
-
-            }
-
-            else if (question === "what is href") {
-
-                answer =
-                "href tells the browser where a link should go.";
-
-            }
-
-            else if (question === "what is src") {
-
-                answer =
-                "src tells the browser where an image comes from.";
-
-            }
-
-            else if (question === "what is h1") {
-
-                answer =
-                "h1 creates a big heading.";
-
-            }
-
-            else if (question === "what is p") {
-
-                answer =
-                "p creates a paragraph.";
-
-            }
-
-            else if (question === "what is img") {
-
-                answer =
-                "img is used to display images on a webpage.";
-
-            }
-
-            else {
-
-                answer =
-                "Sorry! I'm still learning HTML.";
-
-            }
-
-            document.getElementById("chat").innerHTML +=
-
-                "<p><b>You:</b> " +
-                question +
-                "</p>" +
-
-                "<p><b>VishnuGPT:</b> " +
-                answer 
+</body>
+</html> 
+            
