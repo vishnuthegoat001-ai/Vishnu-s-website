@@ -1,15 +1,159 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>
 <html>
- <head>
-     <title>Vishnu's Website</title>
- </head>   
-        <h1>Vishnu's favorite things to do </h1>
-<u1>
-    <li>Playing games</li>
-    <li>Learning Html</li>
-    <li>Going to school</li>
-</u1>
- <style>
-  Background-color:Black
-  <h1>colour:white<h1>
- </style>
+<head>
+    <title>Vishnu Quest</title>
+</head>
+
+<body style="
+    background-color:#1e1e2f;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    padding:40px;
+">
+
+    <h1>⚔️ Vishnu Quest ⚔️</h1>
+
+    <div id="game" style="
+        background-color:#2b2b40;
+        padding:30px;
+        border-radius:20px;
+        max-width:600px;
+        margin:auto;
+    ">
+
+        <h2>🌲 Welcome, Adventurer!</h2>
+
+        <p>
+            You wake up in a mysterious forest.
+            What do you do?
+        </p>
+
+        <button onclick="forest()">
+            🌲 Explore the Forest
+        </button>
+
+        <br><br>
+
+        <button onclick="cave()">
+            🕳️ Enter the Cave
+        </button>
+
+        <br><br>
+
+        <button onclick="village()">
+            🏘️ Visit the Village
+        </button>
+
+    </div>
+
+    <script>
+
+        function forest() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>🌲 The Forest</h2>" +
+
+            "<p>You found a treasure chest! 💰</p>" +
+
+            "<button onclick='openChest()'>Open It</button>" +
+
+            "<br><br>" +
+
+            "<button onclick='restart()'>Go Back</button>";
+
+        }
+
+        function openChest() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>🎉 Treasure!</h2>" +
+
+            "<p>You found 100 gold coins! 🪙</p>" +
+
+            "<button onclick='restart()'>Play Again</button>";
+
+        }
+
+        function cave() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>🐉 The Dragon Cave</h2>" +
+
+            "<p>A dragon appears! What do you do?</p>" +
+
+            "<button onclick='fight()'>⚔️ Fight</button>" +
+
+            "<br><br>" +
+
+            "<button onclick='runAway()'>🏃 Run Away</button>";
+
+        }
+
+        function fight() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>🏆 Hero!</h2>" +
+
+            "<p>You defeated the dragon and became a legend! 🐉⚔️</p>" +
+
+            "<button onclick='restart()'>Play Again</button>";
+
+        }
+
+        function runAway() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>😅 Safe Escape</h2>" +
+
+            "<p>You escaped safely from the dragon.</p>" +
+
+            "<button onclick='restart()'>Play Again</button>";
+
+        }
+
+        function village() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>🏘️ The Village</h2>" +
+
+            "<p>🤖 VishnuGPT the Wise greets you.</p>" +
+
+            "<p>Would you like an HTML lesson?</p>" +
+
+            "<button onclick='lesson()'>📚 Yes</button>" +
+
+            "<br><br>" +
+
+            "<button onclick='restart()'>Maybe Later</button>";
+
+        }
+
+        function lesson() {
+
+            document.getElementById("game").innerHTML =
+
+            "<h2>📚 HTML Lesson</h2>" +
+
+            "<p>Remember: &lt;p&gt; creates a paragraph!</p>" +
+
+            "<button onclick='restart()'>Play Again</button>";
+
+        }
+
+        function restart() {
+
+            location.reload();
+
+        }
+
+    </script>
+
+</body>
+</html>
