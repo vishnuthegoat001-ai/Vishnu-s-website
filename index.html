@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vishnu Quest</title>
+    <title>Vishnu Quest RPG</title>
 </head>
 
 <body style="
@@ -9,151 +9,137 @@
     color:white;
     font-family:Arial;
     text-align:center;
-    padding:40px;
+    padding:20px;
 ">
 
-    <h1>⚔️ Vishnu Quest ⚔️</h1>
+<h1>⚔️ VISHNU QUEST RPG ⚔️</h1>
 
-    <div id="game" style="
-        background-color:#2b2b40;
-        padding:30px;
-        border-radius:20px;
-        max-width:600px;
-        margin:auto;
-    ">
+<div id="stats">
+    ❤️ Health: 100 |
+    🪙 Coins: 0 |
+    🎒 Inventory: Empty |
+    👑 Class: None
+</div>
 
-        <h2>🌲 Welcome, Adventurer!</h2>
+<br>
 
-        <p>
-            You wake up in a mysterious forest.
-            What do you do?
-        </p>
+<div id="game" style="
+    max-width:700px;
+    margin:auto;
+    background-color:#2b2b40;
+    padding:30px;
+    border-radius:20px;
+">
 
-        <button onclick="forest()">
-            🌲 Explore the Forest
-        </button>
+<h2>Choose Your Class</h2>
 
-        <br><br>
+<button onclick="chooseClass('Warrior',120,'Sword')">
+⚔️ Warrior
+</button>
 
-        <button onclick="cave()">
-            🕳️ Enter the Cave
-        </button>
+<br><br>
 
-        <br><br>
+<button onclick="chooseClass('Mage',90,'Magic Staff')">
+🧙 Mage
+</button>
 
-        <button onclick="village()">
-            🏘️ Visit the Village
-        </button>
+<br><br>
 
-    </div>
+<button onclick="chooseClass('Archer',100,'Bow')">
+🏹 Archer
+</button>
 
-    <script>
+<br><br>
 
-        function forest() {
+<button onclick="chooseClass('Code King',110,'Laptop')">
+👑 Code King Vishnu
+</button>
 
-            document.getElementById("game").innerHTML =
+</div>
 
-            "<h2>🌲 The Forest</h2>" +
+<script>
 
-            "<p>You found a treasure chest! 💰</p>" +
+let health = 100;
+let coins = 0;
+let inventory = [];
+let playerClass = "";
 
-            "<button onclick='openChest()'>Open It</button>" +
+function updateStats() {
 
-            "<br><br>" +
+    document.getElementById("stats").innerHTML =
+    "❤️ Health: " + health +
+    " | 🪙 Coins: " + coins +
+    " | 🎒 Inventory: " +
+    (inventory.length ? inventory.join(", ") : "Empty") +
+    " | 👑 Class: " + playerClass;
 
-            "<button onclick='restart()'>Go Back</button>";
+}
 
-        }
+function chooseClass(name,hp,item){
 
-        function openChest() {
+    playerClass = name;
+    health = hp;
+    inventory.push(item);
 
-            document.getElementById("game").innerHTML =
+    updateStats();
 
-            "<h2>🎉 Treasure!</h2>" +
+    mainMenu();
 
-            "<p>You found 100 gold coins! 🪙</p>" +
+}
 
-            "<button onclick='restart()'>Play Again</button>";
+function mainMenu(){
 
-        }
+    document.getElementById("game").innerHTML =
 
-        function cave() {
+    "<h2>🌍 Where will you go?</h2>" +
 
-            document.getElementById("game").innerHTML =
+    "<button onclick='forest()'>🌲 Forest</button><br><br>" +
 
-            "<h2>🐉 The Dragon Cave</h2>" +
+    "<button onclick='village()'>🏘️ Village</button><br><br>" +
 
-            "<p>A dragon appears! What do you do?</p>" +
+    "<button onclick='cave()'>🐉 Dragon Cave</button><br><br>" +
 
-            "<button onclick='fight()'>⚔️ Fight</button>" +
+    "<button onclick='boss()'>👑 Final Boss</button>";
 
-            "<br><br>" +
+}
 
-            "<button onclick='runAway()'>🏃 Run Away</button>";
+function forest(){
 
-        }
+    coins += 50;
 
-        function fight() {
+    updateStats();
 
-            document.getElementById("game").innerHTML =
+    document.getElementById("game").innerHTML =
 
-            "<h2>🏆 Hero!</h2>" +
+    "<h2>🌲 Forest</h2>" +
 
-            "<p>You defeated the dragon and became a legend! 🐉⚔️</p>" +
+    "<p>You found a treasure chest!</p>" +
 
-            "<button onclick='restart()'>Play Again</button>";
+    "<p>🪙 You gained 50 coins!</p>" +
 
-        }
+    "<button onclick='mainMenu()'>Back</button>";
 
-        function runAway() {
+}
 
-            document.getElementById("game").innerHTML =
+function village(){
 
-            "<h2>😅 Safe Escape</h2>" +
+    document.getElementById("game").innerHTML =
 
-            "<p>You escaped safely from the dragon.</p>" +
+    "<h2>🏘️ Village Shop</h2>" +
 
-            "<button onclick='restart()'>Play Again</button>";
+    "<p>Buy something!</p>" +
 
-        }
+    "<button onclick='buySword()'>⚔️ Sword (50 Coins)</button><br><br>" +
 
-        function village() {
+    "<button onclick='buyPotion()'>🧪 Potion (30 Coins)</button><br><br>" +
 
-            document.getElementById("game").innerHTML =
+    "<button onclick='mainMenu()'>Back</button>";
 
-            "<h2>🏘️ The Village</h2>" +
+}
 
-            "<p>🤖 VishnuGPT the Wise greets you.</p>" +
+function buySword(){
 
-            "<p>Would you like an HTML lesson?</p>" +
+    if(coins >= 50){
 
-            "<button onclick='lesson()'>📚 Yes</button>" +
-
-            "<br><br>" +
-
-            "<button onclick='restart()'>Maybe Later</button>";
-
-        }
-
-        function lesson() {
-
-            document.getElementById("game").innerHTML =
-
-            "<h2>📚 HTML Lesson</h2>" +
-
-            "<p>Remember: &lt;p&gt; creates a paragraph!</p>" +
-
-            "<button onclick='restart()'>Play Again</button>";
-
-        }
-
-        function restart() {
-
-            location.reload();
-
-        }
-
-    </script>
-
-</body>
-</html>
+        coins -= 50;            
+            
