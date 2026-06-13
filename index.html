@@ -1,62 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Vishnu Quest RPG</title>
-</head>
-
-<body style="
-    background-color:#1e1e2f;
-    color:white;
-    font-family:Arial;
-    text-align:center;
-    padding:20px;
-">
-
-<h1>⚔️ VISHNU QUEST RPG ⚔️</h1>
-
-<div id="stats">
-    ❤️ Health: 100 |
-    🪙 Coins: 0 |
-    🎒 Inventory: Empty |
-    👑 Class: None
-</div>
-
-<br>
-
-<div id="game" style="
-    max-width:700px;
-    margin:auto;
-    background-color:#2b2b40;
-    padding:30px;
-    border-radius:20px;
-">
-
-<h2>Choose Your Class</h2>
-
-<button onclick="chooseClass('Warrior',120,'Sword')">
-⚔️ Warrior
-</button>
-
-<br><br>
-
-<button onclick="chooseClass('Mage',90,'Magic Staff')">
-🧙 Mage
-</button>
-
-<br><br>
-
-<button onclick="chooseClass('Archer',100,'Bow')">
-🏹 Archer
-</button>
-
-<br><br>
-
-<button onclick="chooseClass('Code King',110,'Laptop')">
-👑 Code King Vishnu
-</button>
-
-</div>
-
 <script>
 
 let health = 100;
@@ -65,81 +6,140 @@ let inventory = [];
 let playerClass = "";
 
 function updateStats() {
-
     document.getElementById("stats").innerHTML =
-    "❤️ Health: " + health +
-    " | 🪙 Coins: " + coins +
-    " | 🎒 Inventory: " +
-    (inventory.length ? inventory.join(", ") : "Empty") +
-    " | 👑 Class: " + playerClass;
-
+        "❤️ Health: " + health +
+        " | 🪙 Coins: " + coins +
+        " | 🎒 Inventory: " +
+        (inventory.length ? inventory.join(", ") : "Empty") +
+        " | 👑 Class: " + playerClass;
 }
 
-function chooseClass(name,hp,item){
-
+function chooseClass(name, hp, item) {
     playerClass = name;
     health = hp;
-    inventory.push(item);
+    inventory = [item];
 
     updateStats();
-
     mainMenu();
-
 }
 
-function mainMenu(){
-
+function mainMenu() {
     document.getElementById("game").innerHTML =
-
-    "<h2>🌍 Where will you go?</h2>" +
-
-    "<button onclick='forest()'>🌲 Forest</button><br><br>" +
-
-    "<button onclick='village()'>🏘️ Village</button><br><br>" +
-
-    "<button onclick='cave()'>🐉 Dragon Cave</button><br><br>" +
-
-    "<button onclick='boss()'>👑 Final Boss</button>";
-
+        "<h2>🌍 Choose Your Adventure</h2>" +
+        "<button onclick='forest()'>🌲 Forest</button><br><br>" +
+        "<button onclick='village()'>🏘️ Village</button><br><br>" +
+        "<button onclick='cave()'>🐉 Dragon Cave</button><br><br>" +
+        "<button onclick='boss()'>👑 Final Boss</button>";
 }
 
-function forest(){
-
+function forest() {
     coins += 50;
 
     updateStats();
 
     document.getElementById("game").innerHTML =
-
-    "<h2>🌲 Forest</h2>" +
-
-    "<p>You found a treasure chest!</p>" +
-
-    "<p>🪙 You gained 50 coins!</p>" +
-
-    "<button onclick='mainMenu()'>Back</button>";
-
+        "<h2>🌲 Forest</h2>" +
+        "<p>You found a treasure chest!</p>" +
+        "<p>🪙 You gained 50 coins.</p>" +
+        "<button onclick='mainMenu()'>Back</button>";
 }
 
-function village(){
+function village() {
+    document.getElementById("game").innerHTML =
+        "<h2>🏘️ Village Shop</h2>" +
+        "<button onclick='buyPotion()'>🧪 Potion (30 Coins)</button><br><br>" +
+        "<button onclick='buySword()'>⚔️ Sword (50 Coins)</button><br><br>" +
+        "<button onclick='mainMenu()'>Back</button>";
+}
+
+function buyPotion() {
+    if (coins >= 30) {
+        coins -= 30;
+        health += 20;
+
+        alert("🧪 You drank a potion! +20 Health");
+    } else {
+        alert("❌ Not enough coins!");
+    }
+
+    updateStats();
+    village();
+}
+
+function buySword() {
+    if (coins >= 50) {
+        coins -= 50;
+        inventory.push("Sword");
+
+        alert("⚔️ You bought a Sword!");
+    } else {
+        alert("❌ Not enough coins!");
+    }
+
+    updateStats();
+    village();
+}
+
+function cave() {
+    health -= 20;
+
+    updateStats();
+
+    if (health <= 0) {
+        gameOver();
+        return;
+    }
 
     document.getElementById("game").innerHTML =
-
-    "<h2>🏘️ Village Shop</h2>" +
-
-    "<p>Buy something!</p>" +
-
-    "<button onclick='buySword()'>⚔️ Sword (50 Coins)</button><br><br>" +
-
-    "<button onclick='buyPotion()'>🧪 Potion (30 Coins)</button><br><br>" +
-
-    "<button onclick='mainMenu()'>Back</button>";
-
+        "<h2>🐉 Dragon Cave</h2>" +
+        "<p>The dragon attacked you!</p>" +
+        "<p>❤️ You lost 20 health.</p>" +
+        "<button onclick='fightDragon()'>⚔️ Fight Back</button><br><br>" +
+        "<button onclick='mainMenu()'>🏃 Escape</button>";
 }
 
-function buySword(){
+function fightDragon() {
+    coins += 100;
 
-    if(coins >= 50){
+    updateStats();
 
-        coins -= 50;            
+    document.getElementById("game").innerHTML =
+        "<h2>🏆 Victory!</h2>" +
+        "<p>You defeated the dragon!</p>" +
+        "<p>🪙 You earned 100 coins.</p>" +
+        "<button onclick='mainMenu()'>Continue</button>";
+}
+
+function boss() {
+    if (health >= 50) {
+
+        document.getElementById("game").innerHTML =
+            "<h2>👑 FINAL BOSS</h2>" +
+            "<p>You defeated the Shadow Dragon!</p>" +
+            "<p>🎉 You became the Code King!</p>" +
+            "<button onclick='restart()'>Play Again</button>";
+
+    } else {
+
+        document.getElementById("game").innerHTML =
+            "<h2>☠️ Too Weak!</h2>" +
+            "<p>You need at least 50 health.</p>" +
+            "<button onclick='mainMenu()'>Train More</button>";
+
+    }
+}
+
+function gameOver() {
+    document.getElementById("game").innerHTML =
+        "<h2>☠️ GAME OVER</h2>" +
+        "<button onclick='restart()'>Try Again</button>";
+}
+
+function restart() {
+    location.reload();
+}
+
+updateStats();
+
+    </script>           
             
